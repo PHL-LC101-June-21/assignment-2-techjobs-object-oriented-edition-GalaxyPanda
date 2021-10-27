@@ -29,6 +29,28 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
+
+
+
+    @Override
+    public String toString() {
+      String nameField = getName().equals("") ? "Data not available" : getName();
+      String employerField = getEmployer().getValue().equals("") ? "Data not available" : getEmployer().toString();
+      String locationField = getLocation().getValue().equals("")? "Data not available" : getLocation().toString();
+      String positionTypeField = getPositionType().getValue().equals("") ? "Data not available" : getPositionType().toString();
+      String coreCompetencyField = getCoreCompetency().getValue().equals("") ? "Data not available" : getCoreCompetency().toString();
+
+        return "\n"  +
+                "ID:" + " " + getId() + '\n' +
+                "Name:" + " " + nameField + '\n' +
+                "Employer:" + " " + employerField + '\n' +
+                "Location:" + " " + locationField + '\n' +
+                "Position Type:" + " " + positionTypeField + '\n' +
+                "Core Competency:" + " " + coreCompetencyField +"\n";
+
+    }
+
+
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
@@ -44,6 +66,7 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
@@ -92,4 +115,6 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
+
 }
